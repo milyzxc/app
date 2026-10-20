@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi lista de tareas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f0f4f8;
+    }
+    h1 { color: #2457a7; }
+    input, button {
+      padding: 12px;
+      font-size: 16px;
+    }
+    button {
+      cursor: pointer;
+      background: #2457a7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    li {
+      margin: 12px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mi lista de tareas</h1>
+  <p>¿Qué necesitas hacer hoy?</p>
+
+  <input id="tarea" type="text" placeholder="Escribe una tarea">
+  <button onclick="agregarTarea()">Añadir</button>
+  <ul id="lista"></ul>
+
+  <script>
+    function agregarTarea() {
+      const campo = document.getElementById("tarea");
+      const texto = campo.value.trim();
+
+      if (texto === "") {
+        alert("Primero escribe una tarea.");
+        return;
+      }
+
+      const elemento = document.createElement("li");
+      elemento.textContent = texto;
+      document.getElementById("lista").appendChild(elemento);
+
+      campo.value = "";
+      campo.focus();
+    }
+  </script>
+</body>
+</html>
